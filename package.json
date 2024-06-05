@@ -1,0 +1,12 @@
+{
+  "name": "3e_ga_pamii_2024_introducaoionic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ion-i": "npm i -g @ionic/cli && ionic info"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
