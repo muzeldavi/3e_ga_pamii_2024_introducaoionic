@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ion-i": "npm i -g @ionic/cli && ionic info"
+    "ion-i": "npm i -g @ionic/cli@7 && ionic info"
   },
   "keywords": [],
   "author": "",
