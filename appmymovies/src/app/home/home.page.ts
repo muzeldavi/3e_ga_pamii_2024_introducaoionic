@@ -5,13 +5,15 @@ import { TmdbService } from '../services/tmdb/tmdb.service';
 import { Movie } from '../models/movie';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CardComponent } from '../components/card/card.component';
+import { CardsListComponent } from '../components/cards-list/cards-list.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, HttpClientModule, CommonModule, RouterLink, IonList, IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent ],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, HttpClientModule, CommonModule, RouterLink, IonList, IonItem, CardComponent, CardsListComponent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent ],
   providers: [TmdbService]
 })
 export class HomePage implements OnInit{
