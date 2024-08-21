@@ -12,8 +12,14 @@
       <ion-title size="large">{{ appTitle }}</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngIf="showLoader" id="home__container-loader">
+    <ion-spinner name="dots"/>
+  </div>
+  
   <app-cards-list
-  *ngIf="movies.length > 0"
+  *ngIf="!showLoader"
    [movies]="movies"
-  />
+  /> 
+ 
 </ion-content>

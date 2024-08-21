@@ -1,6 +1,21 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { 
+  Component, 
+  OnInit } from '@angular/core';
+import { 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonList, 
+  IonItem, 
+  IonCard, 
+  IonCardHeader, 
+  IonCardTitle, 
+  IonCardSubtitle, 
+  IonCardContent, 
+  IonSpinner 
+} from '@ionic/angular/standalone';
 import { TmdbService } from '../services/tmdb/tmdb.service';
 import { Movie } from '../models/movie';
 import { CommonModule } from '@angular/common';
@@ -13,7 +28,8 @@ import { CardsListComponent } from '../components/cards-list/cards-list.componen
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, 
+  imports: [
+    IonHeader, 
     IonToolbar, 
     IonTitle, 
     IonContent, 
@@ -28,13 +44,16 @@ import { CardsListComponent } from '../components/cards-list/cards-list.componen
     IonCardHeader, 
     IonCardTitle, 
     IonCardSubtitle, 
-    IonCardContent ],
+    IonCardContent,
+    IonSpinner
+  ],
   providers: [TmdbService]
 })
 export class HomePage implements OnInit{
   readonly appTitle: string = 'MyMovies';
   readonly imageSize: string = 'https://image.tmdb.org/t/p/w500/'
   readonly movies: Movie[] = [];
+  showLoader: boolean = true;
 
   constructor(
     private readonly service: TmdbService,
@@ -48,8 +67,7 @@ export class HomePage implements OnInit{
     this.service.getMovies().subscribe({
       next: (movies: Movie[]) => {
         this.movies.push(...movies);
-
-        console.log(movies);
+        this.showLoader = this.movies.length === 0;
       },
       error: (erro: any) => {
         console.error(erro);
