@@ -13,10 +13,26 @@ import { CardsListComponent } from '../components/cards-list/cards-list.componen
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, HttpClientModule, CommonModule, RouterLink, IonList, IonItem, CardComponent, CardsListComponent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent ],
+  imports: [IonHeader, 
+    IonToolbar, 
+    IonTitle, 
+    IonContent, 
+    HttpClientModule, 
+    CommonModule, 
+    RouterLink, 
+    IonList, 
+    IonItem, 
+    CardComponent, 
+    CardsListComponent, 
+    IonCard, 
+    IonCardHeader, 
+    IonCardTitle, 
+    IonCardSubtitle, 
+    IonCardContent ],
   providers: [TmdbService]
 })
 export class HomePage implements OnInit{
+  readonly appTitle: string = 'MyMovies';
   readonly imageSize: string = 'https://image.tmdb.org/t/p/w500/'
   readonly movies: Movie[] = [];
 
