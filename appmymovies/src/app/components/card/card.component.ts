@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
@@ -8,14 +9,18 @@ import { Movie } from 'src/app/models/movie';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   standalone: true,
-  imports: [IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, RouterLink ]
+  imports: [CommonModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, RouterLink ]
 })
 export class CardComponent  implements OnInit {
   @Input() movie: Movie | undefined
   readonly imageSize: string = 'https://image.tmdb.org/t/p/w500/'
+  readonly txtReleaseDate: string = 'Lançamento';
+  poster: string= '';
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.poster = `${this.imageSize}/${this.movie?.posterPath}`
+  }
 
 }

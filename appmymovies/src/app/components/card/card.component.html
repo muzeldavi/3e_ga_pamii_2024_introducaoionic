@@ -1,16 +1,22 @@
-<ion-card style="margin-top: 30px;" [routerLink]="'/movie-details/'+ movie?.id">
+<ion-card class="card__container" [routerLink]="'/movie-details/'+ movie?.id">
+  <img [src]="poster" />
   <ion-card-header>
-    <img [src]="imageSize + movie?.posterPath" />
-  </ion-card-header>
-  <ion-card-content>
     <ion-card-title>
       {{ movie?.title }}
     </ion-card-title>
+  
     <ion-card-subtitle>
-      {{ movie?.releaseDate }}
+      {{ txtReleaseDate }} {{ movie?.releaseDate | date: 'dd/MM/yyyy' }}
     </ion-card-subtitle>
+    
+  </ion-card-header>
+ 
+
+<!--  
+  <ion-card-content>
     <p>
       {{ movie?.overview }}
     </p>
   </ion-card-content>
+-->
 </ion-card>
