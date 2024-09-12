@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import {
+  IonCard, 
+  IonCardHeader, 
+  IonCardSubtitle
+} from '@ionic/angular/standalone';
 import { Movie } from 'src/app/models/movie';
 
 @Component({
@@ -9,7 +13,13 @@ import { Movie } from 'src/app/models/movie';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, RouterLink ]
+  imports: [
+    CommonModule, 
+    IonCard, 
+    IonCardHeader, 
+    IonCardSubtitle, 
+    RouterLink 
+  ]
 })
 export class CardComponent  implements OnInit {
   @Input() movie: Movie | undefined

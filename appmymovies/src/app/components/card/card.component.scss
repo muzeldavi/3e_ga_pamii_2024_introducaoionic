@@ -12,10 +12,10 @@
     width: 100%;
     position: fixed;
     bottom: 0px;
-    background-color: rgba($color: #333333, $alpha: 0.3);
+    background-color: rgba($color: #333333, $alpha: 0.7);
     text-align: center;            
 }
 
-/*.card__container > ion-card-header > ion-card-title .card__container > ion-card-header > ion-card-subtitle {
-    text-align: center;
-}*/
+.card__container > ion-card-header > * {
+    text-align: center;            
+}
