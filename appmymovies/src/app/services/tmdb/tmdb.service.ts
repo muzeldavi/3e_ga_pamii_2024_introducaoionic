@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { env } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
@@ -8,11 +8,11 @@ import { Movie } from 'src/app/models/movie';
   providedIn: 'root'
 })
 export class TmdbService {
-  private readonly URL_DISCOVER= `${environment.TMBD_URL}/discover/movie?language=pt-br`;
+  private readonly URL_DISCOVER= `${env.TMBD_URL}/discover/movie?language=pt-br`;
 
   private readonly HEADERS = {
     Accept: 'application/json',
-    Authorization: `Bearer ${environment.TMBD_TOKEN}`
+    Authorization: `Bearer ${env.TMBD_TOKEN}`
   };
 
   constructor(
@@ -47,7 +47,24 @@ export class TmdbService {
           );
         }
       )
-    );
-    
+    );    
+  }
+
+  getMovieDetails(MovieID:string):Observable <any> {
+    return this.httpClient.get<any>(this.URL_DISCOVER);
+  }
+
+  getMovieImages(MovieID:string):Observable <any> {
+    const URL = `${env.TMBD_URL}/movie/${MovieID}/images`
+    return this.httpClient.get<any>(this.URL_DISCOVER);
+  }
+
+  getMovieCredits(MovieID:string):Observable <any> {
+    const URL = `${env.TMBD_URL}/movie/${MovieID}/credits`
+    return this.httpClient.get<any>(this.URL_DISCOVER);
+  }
+
+  getMovieVideo(MovieID:string):Observable <any> {
+    return this.httpClient.get<any>(this.URL_DISCOVER);
   }
 }
