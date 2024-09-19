@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { 
   Component, 
   OnInit } from '@angular/core';
@@ -32,8 +31,7 @@ import { CardsListComponent } from '../components/cards-list/cards-list.componen
     IonHeader, 
     IonToolbar, 
     IonTitle, 
-    IonContent, 
-    HttpClientModule, 
+    IonContent,
     CommonModule, 
     RouterLink, 
     IonList, 
