@@ -8,11 +8,11 @@ import { Movie } from 'src/app/models/movie';
   providedIn: 'root'
 })
 export class TmdbService {
-  private readonly URL_DISCOVER= `${env.TMBD_URL}/discover/movie?language=pt-br`;
+  private readonly URL_DISCOVER= `${env.TMDB_URL}/discover/movie?language=pt-br`;
 
   private readonly HEADERS = {
     Accept: 'application/json',
-    Authorization: `Bearer ${env.TMBD_TOKEN}`
+    Authorization: `Bearer ${env.TMDB_TOKEN}`
   };
 
   constructor(
@@ -46,25 +46,31 @@ export class TmdbService {
             }
           );
         }
-      )
+      ) 
     );    
   }
 
   getMovieDetails(MovieID:string):Observable <any> {
-    return this.httpClient.get<any>(this.URL_DISCOVER);
+    const URL: string = `${env.TMDB_URL}/movie/${MovieID}?language=pt-br`;
+
+    return this.httpClient.get<any>(URL, {headers: this.HEADERS});
   }
 
   getMovieImages(MovieID:string):Observable <any> {
-    const URL = `${env.TMBD_URL}/movie/${MovieID}/images`
-    return this.httpClient.get<any>(this.URL_DISCOVER);
+    const URL: string = `${env.TMDB_URL}/movie/${MovieID}/images?language=pt`
+
+    return this.httpClient.get<any>(URL, {headers: this.HEADERS});
   }
 
   getMovieCredits(MovieID:string):Observable <any> {
-    const URL = `${env.TMBD_URL}/movie/${MovieID}/credits`
-    return this.httpClient.get<any>(this.URL_DISCOVER);
+    const URL = `${env.TMDB_URL}/movie/${MovieID}/credits?language=pt-br`
+
+    return this.httpClient.get<any>(URL, {headers: this.HEADERS});
   }
 
-  getMovieVideo(MovieID:string):Observable <any> {
-    return this.httpClient.get<any>(this.URL_DISCOVER);
+  getMovieVideos(MovieID:string):Observable <any> {
+    const URL = `${env.TMDB_URL}/movie/${MovieID}/videos?language=pt-br`
+
+    return this.httpClient.get<any>(URL, {headers: this.HEADERS});
   }
 }
